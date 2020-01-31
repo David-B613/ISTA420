@@ -1,0 +1,69 @@
+.headers on
+
+--Name: friends.db
+--Author: David Babers
+--Date: January 14, 2020
+
+drop table if exists friends;
+
+create table friends (
+id integer,
+name text,
+sex integer,
+role text,
+age integer
+);
+
+insert into friends values (1, "Evan", 1, "work", 34);
+insert into friends values (2, "Joey", 1, "work", 37);
+insert into friends values (3, "Ashley", 0, "home", 33);
+insert into friends values (4, "Diana", 0, "work", 36);
+insert into friends values (5, "Toddrell", 1, "home", 33);
+insert into friends values (6, "Kris", 0, "home", 34);
+
+.schema friends
+CREATE TABLE friends (
+id integer,
+name text,
+sex integer,
+role text,
+age integer
+);
+
+select * from friends;
+id|name|sex|role|age
+1|Evan|1|work|34
+2|Joey|1|work|37
+3|Ashley|0|home|33
+4|Diana|0|work|36
+5|Toddrell|1|home|33
+6|Kris|0|home|34
+select * from friends where sex = 1;
+id|name|sex|role|age
+1|Evan|1|work|34
+2|Joey|1|work|37
+5|Toddrell|1|home|33
+select * from friends where role = "work";
+id|name|sex|role|age
+1|Evan|1|work|34
+2|Joey|1|work|37
+4|Diana|0|work|36
+select * from friends where role = "home";
+id|name|sex|role|age
+3|Ashley|0|home|33
+5|Toddrell|1|home|33
+6|Kris|0|home|34
+select name from friends;
+name
+Evan
+Joey
+Ashley
+Diana
+Toddrell
+Kris
+select avg(age) from friends;
+avg(age)
+34.5
+select sum(age) from friends;
+sum(age)
+207
